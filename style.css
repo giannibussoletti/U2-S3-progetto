@@ -1,0 +1,13 @@
+body {
+  background: radial-gradient(circle, #2d435e 0%, #22364e 49%, #13202f 100%);
+}
+
+.card-body {
+  background-image: url("https://store.fastly.steamstatic.com/public/images/v6/home/background_spotlight.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cover-img img {
+  max-width: 992px;
+}

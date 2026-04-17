@@ -4,13 +4,7 @@ const authKey =
 
 const urlParameters = new URLSearchParams(location.search)
 const gameID = urlParameters.get("id")
-
-const gameImageUrl = document.querySelector("#main-content img") // thumbnail
-const gameName = document.querySelector("#main-content .card-title") // nome gioco
-const gameBrand = document.querySelectorAll("#main-content .card-subtitle")[0] //brand
-const gamePrice = document.querySelectorAll("#main-content .card-subtitle")[1] //prezzo
-const gameDescription = document.querySelector("#main-content .card-text") //descrizione
-const button = document.querySelector("#main-content button")
+const detailsCard = document.getElementById("main-content")
 
 fetch(urlFetch + gameID, {
   headers: {
@@ -28,16 +22,23 @@ fetch(urlFetch + gameID, {
     }
   })
   .then((data) => {
-    console.log(data)
-    gameImageUrl.setAttribute("src", data.imageUrl)
-    gameName.innerText = data.name
-    gameBrand.innerText = data.brand
-    gamePrice.innerText = data.price + "€"
-    gamePrice.style.fontWeight = "bold"
-    gameDescription.innerText = data.description
-
-    button.addEventListener("click", function () {
-      window.location.replace(`./backoffice.html?id=${data._id}`)
-    })
+    detailsCard.innerHTML = `<div class="col-6 my-3">
+            <div class="card border-0 rounded-0 shadow-lg">
+              <img src="${data.imageUrl}" class="card-img-top rounded-0" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">${data.name}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">${data.brand}</h6>
+                <p class="card-text">
+                ${data.description}
+                </p>
+                <div class="btn-group bg-dark d-flex justify-content-between align-content-center p-1">
+                <span class="d-flex align-items-center">
+                <h6 class="m-2 me-3 card-subtitle text-white fw-light">${data.price}€</h6>
+                </span>
+                <a href="./backoffice.html?id=${data._id}" class="btn btn-success">Modifica</a>
+                </div>
+              </div>
+            </div>
+          </div>`
   })
   .catch((err) => console.log(err))
