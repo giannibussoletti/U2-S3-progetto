@@ -22,7 +22,7 @@ fetch(urlFetch + gameID, {
     }
   })
   .then((data) => {
-    detailsCard.innerHTML = `<div class="col-6 my-3">
+    detailsCard.innerHTML = `<div class="col-12 col-lg-6 my-3">
             <div class="card border-0 rounded-0 shadow-lg">
               <img src="${data.imageUrl}" class="card-img-top rounded-0" alt="..." />
               <div class="card-body">

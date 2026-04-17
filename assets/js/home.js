@@ -24,12 +24,12 @@ fetch(urlFetch, {
       const container = document.getElementById("main-content")
       container.innerHTML += `
         <div class="col my-3">
-            <div class="card border-0 rounded-0 shadow-lg">
+            <div class="card h-100 border-0 rounded-0 shadow-lg">
               <a href="./details.html?id=${data[i]._id}"><img src="${data[i].imageUrl}" class="card-img-top rounded-0" alt="${data[i].name}-cover" /></a>
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <h5 class="card-title">${data[i].name}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">${data[i].brand}</h6>
-                <p class="card-text">
+                <p class="card-text flex-grow-1">
                 ${data[i].description}
                 </p>
                 <div class="btn-group bg-dark d-flex justify-content-between align-content-center p-1">
