@@ -48,33 +48,115 @@
       <h1 class="text-center text-uppercase fw-bold my-3">admin</h1>
     </header>
     <main class="flex-grow-1">
+      <!-- MODAL DELETE GAME -->
+
+      <div
+        class="modal fade"
+        id="deleteGame"
+        tabindex="-1"
+        aria-labelledby="deleteGameLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="deleteGameLabel">Confermi?</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">Questa operazione non può essere annulata</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Chiudi
+              </button>
+              <button
+                id="cancella-gioco"
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal">
+                Cancella
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MODAL DELETE GAME -->
+      <!-- MODAL RESET DATABASE -->
+      <div
+        class="modal fade"
+        id="deleteDB"
+        tabindex="-1"
+        aria-labelledby="deleteDBLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="deleteDBLabel">Vuoi svuotare il DB?</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">Questa operazione non può essere annulata</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Chiudi
+              </button>
+              <button
+                id="cancella-database"
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal">
+                Cancella
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MODAL RESET DATABASE -->
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-6">
             <form>
               <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" />
+                <input type="text" class="form-control" id="name" required />
               </div>
               <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <input type="textarea" class="form-control" id="description" />
+                <input type="textarea" class="form-control" id="description" required />
               </div>
               <div class="mb-3">
                 <label for="brand" class="form-label">Software House</label>
-                <input type="text" class="form-control" id="brand" />
+                <input type="text" class="form-control" id="brand" required />
               </div>
               <div class="mb-3">
                 <label for="imageUrl" class="form-label">Thumbnail</label>
-                <input type="text" class="form-control" id="imageUrl" />
+                <input type="text" class="form-control" id="imageUrl" required />
               </div>
               <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input type="number" class="form-control" id="price" />
+                <input type="number" class="form-control" id="price" required />
               </div>
               <div class="d-flex justify-content-between">
                 <button id="invia-form" type="submit" class="btn btn-success">Invia</button>
-                <button id="cancella-gioco" type="submit" class="btn btn-danger">Cancella</button>
+                <button
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteDB"
+                  type="submit"
+                  class="btn btn-danger">
+                  RESET
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-warning"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteGame">
+                  Cancella
+                </button>
               </div>
             </form>
           </div>

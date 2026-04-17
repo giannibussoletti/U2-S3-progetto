@@ -10,6 +10,8 @@ fetch(urlFetch, {
 })
   .then((response) => {
     if (response.ok) {
+      document.querySelector(".spinner-div").classList.add("d-none")
+
       return response.json()
     } else {
       throw new Error((response) => {
@@ -23,7 +25,7 @@ fetch(urlFetch, {
       container.innerHTML += `
         <div class="col my-3">
             <div class="card border-0 rounded-0 shadow-lg">
-              <img src="${data[i].imageUrl}" class="card-img-top rounded-0" alt="..." />
+              <a href="./details.html?id=${data[i]._id}"><img src="${data[i].imageUrl}" class="card-img-top rounded-0" alt="${data[i].name}-cover" /></a>
               <div class="card-body">
                 <h5 class="card-title">${data[i].name}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">${data[i].brand}</h6>
@@ -34,7 +36,8 @@ fetch(urlFetch, {
                 <span class="d-flex align-items-center">
                 <h6 class="m-2 me-3 card-subtitle text-white fw-light">${data[i].price}€</h6>
                 </span>
-                <a href="./details.html?id=${data[i]._id}" class="btn btn-success">Dettagli</a>
+                <a href="./details.html?id=${data[i]._id}" class="btn btn-success w-50">Dettagli</a>
+                <a href="./backoffice.html?id=${data[i]._id}" class="btn btn-secondary">Modifica</a>
                 </div>
               </div>
             </div>
