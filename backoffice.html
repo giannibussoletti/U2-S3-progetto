@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Amazon Clone</title>
+    <title>BACKOFFICE</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -11,8 +11,35 @@
       crossorigin="anonymous" />
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <header><h1>backoffice</h1></header>
+    <main>
+      <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="description" />
+        </div>
+        <div class="mb-3">
+          <label for="brand" class="form-label">Brand</label>
+          <input type="text" class="form-control" id="brand" />
+        </div>
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">Thumbnail</label>
+          <input type="text" class="form-control" id="imageUrl" />
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" class="form-control" id="price" />
+        </div>
+        <div class="d-flex justify-content-between">
+          <button id="invia-form" type="submit" class="btn btn-primary">Invia</button>
+          <button id="cancella-gioco" type="submit" class="btn btn-danger">Cancella</button>
+        </div>
+      </form>
+    </main>
     <footer></footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
